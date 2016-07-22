@@ -4,6 +4,8 @@
 //  targetKeyCode2: "/path/to/next/source.wav"
 //  ...
 //}
+var freq = [32, 64, 125, 250, 500, 1000, 2000, 4000, 8000, 16000];
+var qValues = [2, 2, 2, 2, 2, 1.68, 1.68, 1.68];
 var pianoKeys = {
   97: "/piano/c.wav",
   119: "/piano/cH.wav",
