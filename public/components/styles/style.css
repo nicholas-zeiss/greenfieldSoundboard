@@ -88,7 +88,7 @@ body {
 }*/
 
 .keyboard {
-  /*margin:20px 20px auto;*/
+  margin:20 px 20px auto;
   /*border: 2px solid black;*/
   text-align: center;
   border-radius:8px;
@@ -100,13 +100,13 @@ body {
 .key {
   font-family: sans-serif;
   margin: 0 auto;
-  padding: 10px;
+  padding: 28px;
   display: inline-block;
   border: 2px solid black;
   border-radius: 4px;
-  min-width: 25px;
-  max-width: 40px;
-  max-height: 140px;
+  min-width: 65px;
+  max-width: 180px;
+  max-height: 50px;
   text-align: center;
   box-shadow: 10px 5px 10px 0 black;
   background-color: white;

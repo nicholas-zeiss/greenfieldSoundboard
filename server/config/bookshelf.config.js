@@ -6,9 +6,9 @@ var path = require('path');
 //   connection: process.env.DATABASE_URL
 // });
 
-var knex = require('knex')({            //Uncomment this to make this file work locally
+var db = require('knex')({            //Uncomment this to make this file work locally
   client: 'sqlite3',
-  connection: {filename: './data/data.db'},
+  connection: {filename: path.join(__dirname, '../db/sb.sqlite')},
   useNullAsDefault: true
 });
 
