@@ -31,8 +31,13 @@ var Levels = React.createClass({
 					tempArray.push(this.state.audioElms[i]);
 				}
 
+<<<<<<< 69294a58880b2350808b4f577e133305880e480f
 				var $elms = $('audio.unloaded');															//  creates an audio node for each audio element if it does not
 				$elms.attr('class', 'loaded');																//  already have one
+=======
+				var $elms = $('audio.unloaded');
+				$elms.attr('class', 'loaded');
+>>>>>>> foo
 				
 				for (var i = 0; i < $elms.length; i++) {
 					var temp = this.state.ac.createMediaElementSource($elms[i]);

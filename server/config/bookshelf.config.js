@@ -1,10 +1,20 @@
 
 var path = require('path');
+<<<<<<< 9e59d6c9b725d6b73cd7fde8e2e40dfa4b55de71
 
 var knex = require('knex')({            //Uncomment this to make this file work locally
+=======
+var db = require('knex')({
+>>>>>>> foo
   client: 'sqlite3',
-  connection: {filename: './data/data.db'},
-  useNullAsDefault: true
+  connection: {
+    host: '127.0.0.1',
+    user: 'your_database_user',
+    password: 'password',
+    database: 'soundboard',
+    charset: 'utf8',
+    filename: path.join(__dirname, '../db/sb.sqlite')
+  }
 });
 
 var db = require('knex')({
