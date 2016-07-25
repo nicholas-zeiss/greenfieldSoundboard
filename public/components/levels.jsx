@@ -1,7 +1,7 @@
 /**
  *   This file creates a levels display and equalizer for the app using the web audio api. All audio elements of the page are 
  *   merged into one audio node, which then passes through a 10 channel equalizer implemented with 10 biquadfilters. From there
- *   it is passed to an analyzer node which collects the data for the levels visualization
+ *   it is passed to an analyzer node which collects the data for the levels visualization.
  **/
 
 
@@ -31,8 +31,8 @@ var Levels = React.createClass({
 					tempArray.push(this.state.audioElms[i]);
 				}
 
-				var $elms = $('audio.unloaded');
-				$elms.attr('class', 'loaded');
+				var $elms = $('audio.unloaded');															//  creates an audio node for each audio element if it does not
+				$elms.attr('class', 'loaded');																//  already have one
 				
 				for (var i = 0; i < $elms.length; i++) {
 					var temp = this.state.ac.createMediaElementSource($elms[i]);
@@ -77,7 +77,7 @@ var Levels = React.createClass({
 			}
 		}
 
-		//  runs the audio through the equalizer and the filter
+		//  runs the audio through the equalizer and the filter, calls the function to check periodically
 		this.setState({filters: tempArray}, function() {
 			merge2.connect(this.state.filters[0]);
 			
