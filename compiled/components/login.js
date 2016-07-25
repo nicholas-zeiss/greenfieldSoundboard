@@ -16,7 +16,6 @@ var Login = function (_React$Component) {
   function Login(props) {
     _classCallCheck(this, Login);
 
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
     // console.log(this.props);
     // console.log(this.state);
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Login).call(this, props));
@@ -26,28 +25,10 @@ var Login = function (_React$Component) {
     };
     // this._onLoginButtonClick = this._onLoginButtonClick.bind(this);
     _this.attemptLogin = _this.attemptLogin.bind(_this);
-=======
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Login).call(this, props));
-
-    _this.state = {
-      showComponent: false
-    };
-    _this._onButtonClick = _this._onButtonClick.bind(_this);
->>>>>>> foo
     return _this;
   }
 
   _createClass(Login, [{
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
-=======
-    key: "_onButtonClick",
-    value: function _onButtonClick() {
-      this.setState({
-        showComponent: true
-      });
-    }
-  }, {
->>>>>>> foo
     key: "handleEmailChange",
     value: function handleEmailChange(event) {
       this.setState({ email: event.target.value });
@@ -60,12 +41,7 @@ var Login = function (_React$Component) {
   }, {
     key: "attemptLogin",
     value: function attemptLogin() {
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
       var that = this;
-=======
-      console.log("email", this.state.email);
-      console.log("password", this.state.password);
->>>>>>> foo
       $.ajax({
         type: "POST",
         url: "/login",
@@ -75,7 +51,6 @@ var Login = function (_React$Component) {
           email: this.state.email,
           password: this.state.password
         }),
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
         success: function success(user) {
           // console.log('sucesss');
           // that.setState({
@@ -89,11 +64,6 @@ var Login = function (_React$Component) {
             email: '',
             password: ''
           });
-=======
-        success: function success() {
-          console.log("device control succeeded");
-          console.log("woohoooo");
->>>>>>> foo
         },
         error: function error(err) {
           console.log("Error!!", err);
@@ -101,7 +71,6 @@ var Login = function (_React$Component) {
         }
       });
     }
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
 
     // logout() {
     //   $.ajax({
@@ -137,21 +106,6 @@ var Login = function (_React$Component) {
           )
         ) : null,
         sideModals.indexOf('login') !== -1 ? React.createElement(
-=======
-  }, {
-    key: "render",
-    value: function render() {
-      var loggedIn = this.state.loggedIn ? 'Logout' : 'Login';
-      return React.createElement(
-        "div",
-        { id: "loginComponent" },
-        this.state.showComponent ? null : React.createElement(
-          "button",
-          { type: "button", onClick: this._onButtonClick },
-          loggedIn
-        ),
-        this.state.showComponent ? React.createElement(
->>>>>>> foo
           "div",
           { id: "loginForm" },
           React.createElement(
@@ -166,12 +120,8 @@ var Login = function (_React$Component) {
           ),
           React.createElement(
             "p",
-            { "class": "submit" },
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
+            { className: "submit" },
             React.createElement("input", { type: "submit", value: "Login", onClick: this.attemptLogin })
-=======
-            React.createElement("input", { type: "submit", value: "Login", onClick: this.attemptLogin.bind(this) })
->>>>>>> foo
           )
         ) : null
       );

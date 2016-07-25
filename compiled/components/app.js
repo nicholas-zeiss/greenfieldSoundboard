@@ -14,10 +14,7 @@ var App = React.createClass({
   displayName: "App",
 
   //declaring some states.
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
 
-=======
->>>>>>> foo
   getInitialState: function getInitialState() {
     return {
       bindings: [],
@@ -25,13 +22,9 @@ var App = React.createClass({
       changeKey: "",
       record: [],
       loggedIn: false,
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
       sideModals: [],
       keyMap: {},
       recordTitles: []
-=======
-      keyMap: {}
->>>>>>> foo
     };
   },
   //once the component mounts, we set those states equal to the correct data.  We also hide the binding window using JQuery until it is required.
@@ -40,11 +33,7 @@ var App = React.createClass({
     this.serverRequest = $.get(window.location.href + "default", function (result) {
       this.setState({
         soundList: result,
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
         bindings: map.default.bindings.map(function (key) {
-=======
-        bindings: map.default.board.map(function (key) {
->>>>>>> foo
           return key !== 0 ? { key: key, path: map.default.keys[key], loop: false, playing: false } : 0;
         }),
         keyMap: map.default.keys
@@ -55,7 +44,6 @@ var App = React.createClass({
     navigator.appVersion.includes("Windows") ? this.setState({ bindTrigger: "altKey" }) : this.setState({ bindTrigger: "ctrlKey" });
 
     //one event listener for all keypresses.
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
     var that = this;
     window.addEventListener('keypress', function (event) {
       // var that = this;
@@ -70,16 +58,6 @@ var App = React.createClass({
       this.setState({
         soundList: result,
         bindings: map[instrument].bindings.map(function (key) {
-=======
-    window.addEventListener('keypress', this.handleKeyPress);
-  },
-
-  bindPiano: function bindPiano(instrument) {
-    $.get(window.location.href + instrument, function (result) {
-      this.setState({
-        soundList: result,
-        bindings: map[instrument].board.map(function (key) {
->>>>>>> foo
           return key !== 0 ? { key: key, path: map[instrument].keys[key], loop: false, playing: false } : 0;
         }),
         keyMap: map[instrument].keys
@@ -92,7 +70,6 @@ var App = React.createClass({
     this.serverRequest.abort();
   },
 
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
   _onLoginButtonClick: function _onLoginButtonClick() {
     // if already logged in, logout (get change state of currentUser and loggedIn)
     // TO-DO: - send logout ajax call to server so user gets deleted from session
@@ -135,18 +112,11 @@ var App = React.createClass({
   //this is our keyhandler function.  It handles all keypress events on the DOM.  Plays/stops the appropriate sound file,
   //as well as changing the styling on the appropriate hey.
   handleKeyPress: function handleKeyPress(event) {
-=======
-  //this is our keyhandler function.  It handles all keypress events on the DOM.  Plays/stops the appropriate sound file,
-  //as well as changing the styling on the appropriate hey.
-  handleKeyPress: function handleKeyPress(event) {
-    console.log(this.state.record);
->>>>>>> foo
     //store all our relevent DOM elements as variables so that we can reference them easily later.
     var key = event.code.toLowerCase()[3],
         keyNumber = key.charCodeAt(),
         $audio = document.getElementById(keyNumber),
         $vKey = $('#' + keyNumber).parent();
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
     var tmp1 = this.state.recordTitles;
     var tmp = this.state.record;
     tmp.push($audio);
@@ -156,13 +126,6 @@ var App = React.createClass({
     tmp1.push(" " + tmpstr);
     this.setState({
       recordTitles: tmp1,
-=======
-
-    var tmp = this.state.record;
-    tmp.push($audio);
-    tmp.push(this.state.keyMap[keyNumber]);
-    this.setState({
->>>>>>> foo
       record: tmp
     });
 
@@ -189,10 +152,6 @@ var App = React.createClass({
   triggerKey: function triggerKey($vKey, $audio) {
     $vKey.addClass('green pressed');
     $audio.currentTime = 0;
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
-=======
-
->>>>>>> foo
     if ($audio.paused) {
       $audio.play();
     } else {
@@ -232,17 +191,11 @@ var App = React.createClass({
       React.createElement(App, null)
     ), document.getElementById('app'));
   },
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
 
   clearRecord: function clearRecord() {
     this.setState({
       record: [],
       recordTitles: []
-=======
-  clearRecord: function clearRecord() {
-    this.setState({
-      record: []
->>>>>>> foo
     });
   },
 
@@ -253,7 +206,6 @@ var App = React.createClass({
     return React.createElement(
       "div",
       { id: "appWindow" },
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
       React.createElement(Login, {
         _onLoginButtonClick: this._onLoginButtonClick,
         loginSuccess: this.loginSuccess,
@@ -261,9 +213,6 @@ var App = React.createClass({
         loggedIn: this.state.loggedIn,
         currentUser: this.state.currentUser
       }),
-=======
-      React.createElement(Login, null),
->>>>>>> foo
       React.createElement(
         "div",
         { id: "bindingWindow" },
@@ -284,13 +233,9 @@ var App = React.createClass({
           }, this)
         )
       ),
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
       React.createElement(Search, { searchInputClick: this.searchInputClick, searchButtonClick: this.searchButtonClick }),
       React.createElement(SearchResults, null),
       React.createElement(InstrumentList, { handleClick: this.bindTo }),
-=======
-      React.createElement(InstrumentList, { handleClick: this.bindPiano }),
->>>>>>> foo
       React.createElement(
         "div",
         { id: "keyboardWindow", className: "keyboard" },
@@ -301,11 +246,7 @@ var App = React.createClass({
         })
       ),
       React.createElement(Levels, null),
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
       React.createElement(Library, { recording: this.state.record, recordNames: this.state.recordTitles.toString(), clearRecord: this.clearRecord })
-=======
-      React.createElement(Library, { record: this.state.record, clearRecord: this.state.clearRecord })
->>>>>>> foo
     );
   }
 });
@@ -320,10 +261,6 @@ setTimeout(function () {
     null,
     React.createElement(App, null)
   ), document.getElementById('app'));
-<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
 }, 2000);
 
 window.App = App;
-=======
-}, 2000);
->>>>>>> foo
