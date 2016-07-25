@@ -25,9 +25,17 @@ var VKey = React.createClass({
       React.createElement(
         'p',
         { className: 'filename' },
+<<<<<<< 31e1535702b08db5f1b2b608c8a517cd19b1f92c
         this.props.path.split('/')[2].slice(0, -4).split("-").join(" ")
       ),
       React.createElement('audio', { id: this.props.keyId, src: this.props.path, onEnded: this.handleAudioEnd, preload: 'auto' })
     );
+=======
+        this.props.path.substr(12).slice(0, -4).split("-").join(" ")
+      ),
+      React.createElement('audio', { id: this.props.keyId, src: this.props.path, onEnded: this.handleAudioEnd, preload: 'auto' })
+    ) //
+    ;
+>>>>>>> foo
   }
 });
