@@ -84,7 +84,7 @@ class Login extends React.Component {
             <p>
               <input type="password" value={this.state.password} placeholder="Password" onChange={this.handlePasswordChange.bind(this)} />
             </p>
-            <p class="submit">
+            <p className="submit">
               <input type="submit" value="Login" onClick={this.attemptLogin} />
             </p>
           </div> :
