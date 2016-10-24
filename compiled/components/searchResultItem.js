@@ -1,5 +1,4 @@
 "use strict";
-'esversion: 6';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -9,36 +8,37 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Layout = function (_React$Component) {
-  _inherits(Layout, _React$Component);
+var SearchResultItem = function (_React$Component) {
+  _inherits(SearchResultItem, _React$Component);
 
-  function Layout() {
-    _classCallCheck(this, Layout);
+  function SearchResultItem(props) {
+    _classCallCheck(this, SearchResultItem);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Layout).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SearchResultItem).call(this, props));
+
+    _this.state = {};
+    return _this;
   }
 
-  _createClass(Layout, [{
+  _createClass(SearchResultItem, [{
+    key: "handleClick",
+    value: function handleClick(item) {}
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return React.createElement(
         "div",
-        { className: "loading" },
-        React.createElement(
-          "h1",
-          { className: "intro" },
-          "Good Times Ahead . . ."
-        ),
-        React.createElement("img", { src: "../../assets/tumblr_luxr3mmGVw1r1sjguo1_400.gif" })
+        { className: "", onClick: function onClick() {
+            return _this2.handleClick(_this2.props.searchItem);
+          } },
+        this.props.searchItem.name
       );
     }
   }]);
 
-  return Layout;
+  return SearchResultItem;
 }(React.Component);
 
-ReactDOM.render(React.createElement(
-  "div",
-  null,
-  React.createElement(Layout, null)
-), document.getElementById('app'));
+window.SearchResultItem = SearchResultItem;
